@@ -80,16 +80,16 @@ return await bcrypt.compare(password, this.password)
 // 'methods' is a object inside userSchema isPasswordCorrect is a method added by us(custom method) inside methods 
 
 userSchema.methods.generateAccessToken= function(){
-  return  jwt.sign(
+  return  jwt.sign( // sign method use for generating token
         {
           _id:this._id,
           email:this.email,
           username:this.username,
           fullName:this.fullName
-          //payloadName: this.thing is comming from database
+        // payloadName(for token): 'this.thing' is comming from database(mongodb)
         },
         process.env.ACCESS_TOKEN_SECRET,{
-            expiresIn:process.env.ACCESS_TOKEN_EXPIRY
+            expiresIn:process.env.ACCESS_TOKEN_EXPIRY //expiry object
         }
     )
 
