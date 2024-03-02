@@ -6,7 +6,7 @@ const connectDB= async ()=>{
     try { // mongoose returns an object hence we can store in a variable
         const connectionInstance= await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
       console.log(`\n MongoDB connected !! DB HOST: ${connectionInstance.connection.host}`);
-      console.log("This is connectionInstance: ",connectionInstance);
+    //   console.log("This is connectionInstance: ",connectionInstance);
       
 
     } catch (error) {

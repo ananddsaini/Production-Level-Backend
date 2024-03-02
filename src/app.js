@@ -17,4 +17,17 @@ app.use(express.urlencoded({
 
 app.use(express.static("public")) // static folder allow us to store file, pdf (static assets ) inside 'public' folder
 app.use(cookieParser()) // it also has some option like CORS **It allow us to access and set cookies from user browser 
+
+//routes import
+import userRouter from './routes/user.routes.js'
+
+// routes declaration
+// using middleware to bring router
+app.use("/api/v1/users",userRouter);
+
+
+//http://localhost:8000/api/v1/users/register
+
+
+
 export {app}
